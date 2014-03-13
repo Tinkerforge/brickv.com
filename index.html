@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Brick Viewer</title>
+
+    <link href="css/bs/bootstrap.min.css" rel="stylesheet">
+    <link href="css/tf/dashboard.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Brick Viewer</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <form id="brickv-connect-info-form" class="navbar-form navbar-left">
+            <input type="text" class="form-control" id="brickv-host" value="localhost" placeholder="localhost">
+            <input type="text" class="form-control" id="brickv-port" value="4280" placeholder="4280">
+          </form>
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="#" id="brickv-connect">Connect</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#dashboard-header" id="brick-uid-III_ABOUT">About</a></li>
+            <li><a href="#dashboard-header" id="brick-uid-III_LEGAL_INFO">Legal Info</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2 col-md-2 navbar">
+          <ul id="sidebar-overview" class="nav nav-sidebar">
+            <li id="li-overview" class="active"><a id="brick-uid-III_OVERVIEW" href="#dashboard-header">Overview</a></li>
+          </ul>
+          <ul id="sidebar-bricks" class="nav nav-sidebar">
+          </ul>
+        </div>
+        <div class="col-sm-10 col-md-10 main">
+          <h1 style="padding-top: 70px; margin-top: -70px;" id="dashboard-header" class="page-header"></h1>
+          <div id="dashboard" class="row">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Misc libs -->
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/bs/bootstrap.min.js"></script>
+    <script src="js/flot/jquery.flot.min.js"></script>
+    <script src="js/flot/jquery.flot.resize.min.js"></script>
+
+    <!-- Bindings -->
+    <script src="js/tf/Tinkerforge.js"></script>
+    
+    <!-- Misc -->
+    <script src="js/brickv/BrickGraph.js"></script>
+
+    <!-- Plugins -->
+    <script src="js/brickv/plugins/PluginEssentials.js"></script>
+    <script src="js/brickv/plugins/PluginUnknown.js"></script>
+    <script src="js/brickv/plugins/PluginAbout.js"></script>
+    <script src="js/brickv/plugins/PluginLegalInfo.js"></script>
+    <script src="js/brickv/plugins/PluginOverview.js"></script>
+    <script src="js/brickv/plugins/PluginBrickMaster.js"></script>
+    <script src="js/brickv/plugins/PluginBrickletAmbientLight.js"></script>
+    <script src="js/brickv/plugins/PluginBrickletHumidity.js"></script>
+    <script src="js/brickv/plugins/PluginBrickletTemperature.js"></script>
+    <script src="js/brickv/plugins/PluginBrickletBarometer.js"></script>
+
+    <!-- Brick Viewer -->
+    <script src="js/brickv/BrickViewer.js"></script>
+  </body>
+</html>
