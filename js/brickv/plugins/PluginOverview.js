@@ -49,7 +49,7 @@ function PluginOverview() {
   };
 
   this.addDOMElements = function() {
-    html = '<div class="row col-xs-18 col-sm-12"><div class="col-xs-18 col-sm-8">' +
+    html = '<div class="row col-xs-18 col-md-12"><div class="col-xs-18 col-md-10">' +
             '<div class="table">' +
              '<table class="table table-striped table-hover">' +
                '<thead>' +
