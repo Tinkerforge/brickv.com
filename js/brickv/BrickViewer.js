@@ -14,6 +14,7 @@ function BrickViewer() {
   this.plugins[27] = new PluginBrickletHumidity();
   this.plugins[216] = new PluginBrickletTemperature();
   this.plugins[221] = new PluginBrickletBarometer();
+  this.plugins[240] = new PluginBrickletHallEffect();
   this.plugins[10001] = new PluginOverview();
   this.plugins[10002] = new PluginAbout();
   this.plugins[10003] = new PluginLegalInfo();
