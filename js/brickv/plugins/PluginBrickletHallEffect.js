@@ -24,14 +24,14 @@ function PluginBrickletHallEffect() {
     htmlEdgeCount = '<div class="col-xs-16 col-sm-12"><h3>Edge Count: <b id="hall-effect-bricklet-edge-count"></b></h3></div>'; 
     $('#dashboard').append(htmlEdgeCount);
     
-    htmlEdgeType = '<div class="col-xs-8 col-sm-4">Edge detection type: <select id="hall-effect-bricklet-edge-type" class="form-control">' +
+    htmlEdgeType = '<div class="col-xs-16 col-sm-4">Edge detection type: <select id="hall-effect-bricklet-edge-type" class="form-control">' +
       '<option value="0">Rising Edge</option>' +
       '<option value="1">Falling Edge</option>' +
       '<option value="2">Both</option>' +
       '</select></div>';
     $('#dashboard').append(htmlEdgeType);
     
-    htmlDebounce = '<div class="col-xs-8 col-sm-4">Debounce:<input class="col-md-8 form-control" type="text" id="hall-effect-bricklet-debounce"/></div>';
+    htmlDebounce = '<div class="col-xs-16 col-sm-4">Debounce:<input class="col-md-8 form-control" type="text" id="hall-effect-bricklet-debounce"/></div>';
     $('#dashboard').append(htmlDebounce);
   };
   
