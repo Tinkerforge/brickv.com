@@ -1,5 +1,5 @@
-function PluginBrickletRotaryPoti() {
-  this.name = "Rotary Poti Bricklet";
+function PluginBrickletLinearPoti() {
+  this.name = "Linear Poti Bricklet";
   this.deviceInformation = null; 
   this.running = false;
   this.updatePeriod = 50;
@@ -8,7 +8,7 @@ function PluginBrickletRotaryPoti() {
   this.init = function() {
     this.poti = null;
     this.lastValue = 0;
-    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.getValue.bind(this), 'Position', '', 'rotary-poti-bricklet');
+    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.getValue.bind(this), 'Position', '', 'linear-poti-bricklet');
   };
 
   this.setDeviceInformation = function(deviceInformation) {
@@ -33,7 +33,7 @@ function PluginBrickletRotaryPoti() {
       this.addDOMElements();
       this.running = true;
 
-      this.poti = new Tinkerforge.BrickletRotaryPoti(this.deviceInformation.uid, brickViewer.ipcon);
+      this.poti = new Tinkerforge.BrickletLinearPoti(this.deviceInformation.uid, brickViewer.ipcon);
       this.poti.getPosition(
         function(position) {
           this.lastValue = position;
@@ -41,7 +41,7 @@ function PluginBrickletRotaryPoti() {
         }.bind(this)
       );
       
-      this.poti.on(Tinkerforge.BrickletRotaryPoti.CALLBACK_POSITION,
+      this.poti.on(Tinkerforge.BrickletLinearPoti.CALLBACK_POSITION,
         function(position) {
           this.lastValue = position;
         }.bind(this)
