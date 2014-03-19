@@ -14,7 +14,10 @@ function BrickViewer() {
   this.plugins[25] = new PluginBrickletDistanceIR();
   this.plugins[27] = new PluginBrickletHumidity();
   this.plugins[213] = new PluginBrickletLinearPoti();
+  this.plugins[215] = new PluginBrickletRotaryPoti();
   this.plugins[216] = new PluginBrickletTemperature();
+  this.plugins[217] = new PluginBrickletTemperatureIR();
+  this.plugins[219] = new PluginBrickletAnalogIn();
   this.plugins[221] = new PluginBrickletBarometer();
   this.plugins[229] = new PluginBrickletDistanceUS();
   this.plugins[240] = new PluginBrickletHallEffect();
