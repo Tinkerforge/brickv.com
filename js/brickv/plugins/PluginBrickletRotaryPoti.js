@@ -8,7 +8,15 @@ function PluginBrickletRotaryPoti() {
   this.init = function() {
     this.poti = null;
     this.lastValue = 0;
-    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.getValue.bind(this), 'Position', '', 'rotary-poti-bricklet');
+    
+    this.configs = Array();
+    this.configs[0] = new BrickGraphConfig();
+    this.configs[0].getValueFunc = this.getValue.bind(this);
+    this.configs[0].name = 'Position';
+    this.configs[0].unit = '';
+    this.configs[0].id = 'rotary-poti-bricklet';
+    
+    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.configs);
   };
 
   this.setDeviceInformation = function(deviceInformation) {

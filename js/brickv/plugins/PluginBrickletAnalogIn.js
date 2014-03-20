@@ -8,7 +8,15 @@ function PluginBrickletAnalogIn() {
   this.init = function() {
     this.ai = null;
     this.lastValue = 0;
-    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.getValue.bind(this), 'Voltage', ' mV', 'analog-in-bricklet');
+    
+    this.configs = Array();
+    this.configs[0] = new BrickGraphConfig();
+    this.configs[0].getValueFunc = this.getValue.bind(this);
+    this.configs[0].name = 'Voltage';
+    this.configs[0].unit = 'mV';
+    this.configs[0].id = 'analog-in-bricklet';
+    
+    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.configs);
   };
 
   this.setDeviceInformation = function(deviceInformation) {
@@ -41,7 +49,7 @@ function PluginBrickletAnalogIn() {
   
   this.writeConfig = function() {
     var range = parseInt($("#analog-in-bricklet-range option:selected").val(), 10);
-	this.ai.setRange(range);
+	  this.ai.setRange(range);
 	
     var averaging = parseInt($('#analog-in-bricklet-averaging').val(), 10);
     if(value < 0 || value > 255) {

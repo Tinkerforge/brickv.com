@@ -8,7 +8,15 @@ function PluginBrickletDistanceUS() {
   this.init = function() {
     this.dist = null;
     this.lastValue = 0;
-    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.getValue.bind(this), 'Distance', '', 'distance-us-bricklet');
+    
+    this.configs = Array();
+    this.configs[0] = new BrickGraphConfig();
+    this.configs[0].getValueFunc = this.getValue.bind(this);
+    this.configs[0].name = 'Distance';
+    this.configs[0].unit = '';
+    this.configs[0].id = 'distance-us-bricklet';
+    
+    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.configs);
   };
 
   this.setDeviceInformation = function(deviceInformation) {

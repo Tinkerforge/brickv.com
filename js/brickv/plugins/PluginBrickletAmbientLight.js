@@ -8,7 +8,15 @@ function PluginBrickletAmbientLight() {
   this.init = function() {
     this.al = null;
     this.lastValue = 0;
-    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.getValue.bind(this), 'Illuminance', 'Lux', 'ambient-light-bricklet');
+    
+    this.configs = Array();
+    this.configs[0] = new BrickGraphConfig();
+    this.configs[0].getValueFunc = this.getValue.bind(this);
+    this.configs[0].name = 'Illuminance';
+    this.configs[0].unit = 'Lux';
+    this.configs[0].id = 'ambient-light-bricklet';
+    
+    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.configs);
   };
 
   this.setDeviceInformation = function(deviceInformation) {

@@ -8,7 +8,15 @@ function PluginBrickletDistanceIR() {
   this.init = function() {
     this.dist = null;
     this.lastValue = 0;
-    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.getValue.bind(this), 'Distance', 'cm', 'distance-ir-bricklet');
+    
+    this.configs = Array();
+    this.configs[0] = new BrickGraphConfig();
+    this.configs[0].getValueFunc = this.getValue.bind(this);
+    this.configs[0].name = 'Distance';
+    this.configs[0].unit = 'cm';
+    this.configs[0].id = 'distance-ir-bricklet';
+    
+    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.configs);
   };
 
   this.setDeviceInformation = function(deviceInformation) {

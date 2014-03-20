@@ -8,7 +8,15 @@ function PluginBrickletTemperature() {
   this.init = function() {
     this.hum = null;
     this.lastValue = 0;
-    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.getValue.bind(this), 'Temperature', '°C', 'temperature-bricklet');
+    
+    this.configs = Array();
+    this.configs[0] = new BrickGraphConfig();
+    this.configs[0].getValueFunc = this.getValue.bind(this);
+    this.configs[0].name = 'Temperature';
+    this.configs[0].unit = '°C';
+    this.configs[0].id = 'temperature-bricklet';
+    
+    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.configs);
   };
 
   this.setDeviceInformation = function(deviceInformation) {

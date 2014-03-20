@@ -8,7 +8,15 @@ function PluginBrickletHumidity() {
   this.init = function() {
     this.hum = null;
     this.lastValue = 0;
-    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.getValue.bind(this), 'Relative Humidity', '%RH', 'humidity-bricklet');
+    
+    this.configs = Array();
+    this.configs[0] = new BrickGraphConfig();
+    this.configs[0].getValueFunc = this.getValue.bind(this);
+    this.configs[0].name = 'Relative Humidity';
+    this.configs[0].unit = '%RH';
+    this.configs[0].id = 'humidity-bricklet';
+    
+    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.configs);
   };
 
   this.setDeviceInformation = function(deviceInformation) {

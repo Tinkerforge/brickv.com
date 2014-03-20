@@ -8,7 +8,15 @@ function PluginBrickletBarometer() {
   this.init = function() {
     this.baro = null;
     this.lastValue = 0;
-    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.getValue.bind(this), 'Air Pressure', 'mbar', 'barometer-bricklet');
+    
+    this.configs = Array();
+    this.configs[0] = new BrickGraphConfig();
+    this.configs[0].getValueFunc = this.getValue.bind(this);
+    this.configs[0].name = 'Air Pressure';
+    this.configs[0].unit = 'mbar';
+    this.configs[0].id = 'barometer-bricklet';
+    
+    this.graph = new BrickGraph(this.updatePeriod, this.maxPoints, this.configs);
   };
 
   this.setDeviceInformation = function(deviceInformation) {
