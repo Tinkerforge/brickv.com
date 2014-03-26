@@ -65,9 +65,6 @@ function BrickViewer() {
   };
 
   this.connect = function() {
-    if($(window).width() <= 768) {
-      $("button.navbar-toggle").click();
-    }
     $('#brickv-connect-info-form').fadeOut();
     $('#brickv-connect').fadeOut(function() {
       $('#brickv-connect').unbind();

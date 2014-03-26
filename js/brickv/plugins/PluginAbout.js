@@ -28,9 +28,6 @@ function PluginAbout() {
 
   this.start = function() {
     if(!this.running) {
-      if($(window).width() <= 768) {
-        $("button.navbar-toggle").click();
-      }
       this.init();
       this.running = true;
       this.addDOMElements();
