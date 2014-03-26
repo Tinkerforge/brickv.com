@@ -10,6 +10,7 @@ function DeviceInformation(uid, connectedUid, position, hardwareVersion, firmwar
 function BrickViewer() {
   this.plugins = {};
   this.plugins[13] = new PluginBrickMaster();
+  this.plugins[16] = new PluginBrickIMU();
   this.plugins[21] = new PluginBrickletAmbientLight();
   this.plugins[25] = new PluginBrickletDistanceIR();
   this.plugins[27] = new PluginBrickletHumidity();
