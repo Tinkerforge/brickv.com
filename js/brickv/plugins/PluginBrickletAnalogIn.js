@@ -72,7 +72,7 @@ function PluginBrickletAnalogIn() {
       
       this.ai = new Tinkerforge.BrickletAnalogIn(this.deviceInformation.uid, brickViewer.ipcon);
       this.ai.getVoltage(function(voltage) {
-        this.lastValue = voltage
+        this.lastValue = voltage;
         this.graph.start();
       }.bind(this));
       
@@ -94,7 +94,7 @@ function PluginBrickletAnalogIn() {
       
       this.ai.on(Tinkerforge.BrickletAnalogIn.CALLBACK_VOLTAGE,
         function(voltage) {
-    		  this.lastValue = voltage
+    		  this.lastValue = voltage;
       }.bind(this));
 
       this.ai.setVoltageCallbackPeriod(this.updatePeriod);
